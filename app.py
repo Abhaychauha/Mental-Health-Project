@@ -166,16 +166,34 @@ with st.sidebar:
     st.caption("2014 OSMI Survey Explorer")
     st.divider()
 
-    uploaded = st.file_uploader("Upload survey.csv (optional)", type=["csv"])
-    data_path = uploaded if uploaded is not None else "survey.csv"
+    uploaded = st.file_uploader("Upload survey.csv to begin", type=["csv"])
+
+# ----------------------------------------------------------------------
+# WELCOME SCREEN — nothing is built until a file is uploaded
+# ----------------------------------------------------------------------
+if uploaded is None:
+    st.markdown('<div class="hero-title">Mental Health in Tech — Survey Dashboard</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="hero-sub">Interactive exploration of the 2014 OSMI Mental Health in Tech Survey — '
+        "demographics, workplace support, and attitudes toward mental health disclosure.</div>",
+        unsafe_allow_html=True,
+    )
+    st.write("")
+    st.markdown(
+        """<div class="card">
+        <h4>👋 Get started</h4>
+        <p style="color:#9AA5B1;">Upload the <code>survey.csv</code> file using the uploader in the
+        sidebar to generate the dashboard — KPIs, charts, and filters will all appear once your
+        data is loaded.</p>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+    st.stop()
 
 try:
-    raw_df = load_data(data_path)
-except FileNotFoundError:
-    st.error(
-        "Couldn't find **survey.csv**. Place it next to `app.py`, "
-        "or upload it using the sidebar uploader."
-    )
+    raw_df = load_data(uploaded)
+except Exception as e:
+    st.error(f"Couldn't read that file as a valid survey CSV. Details: {e}")
     st.stop()
 
 with st.sidebar:
