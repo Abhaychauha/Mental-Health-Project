@@ -103,13 +103,4 @@ Then open the local URL Streamlit prints (usually `http://localhost:8501`). `sur
 
 ---
 
-## 📄 License
 
-This project is released under the [MIT License](LICENSE). The underlying survey data is provided by OSMI under their own terms — see [osmihelp.org](https://osmihelp.org/) for details.
-
----
-
-## 🙌 Acknowledgements
-
-- Dataset: [Open Sourcing Mental Illness (OSMI)](https://osmihelp.org/)
-- Built as part of an EDA capstone project.
