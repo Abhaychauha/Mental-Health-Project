@@ -1,5 +1,7 @@
 # 🧠 Mental Health in Tech — Survey Analysis & Dashboard
 
+App Link: https://mental-health-project-vfhy7pofondgcdosmmsjmu.streamlit.app/
+
 An end-to-end data analysis project on the **2014 OSMI Mental Health in Tech Survey**, exploring how mental health is perceived, supported, and disclosed in tech workplaces — and what actually drives employees to seek treatment.
 
 The project has two parts:
